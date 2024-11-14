@@ -46,6 +46,8 @@ namespace DEMO1
                     FuleType = Console.ReadLine();
                     Console.WriteLine("Enter Seating Capacity : ");
                     Seatingcapacity = int.Parse(Console.ReadLine());
+                    cmd.CommandText = $"insert into Cars values('{RegisNo}', '{Name}', {Model}, '{color}', '{FuleType}', {Seatingcapacity})";
+                    cmd.CommandType = CommandType.Text;
 
                 }
                 Console.WriteLine("Do You Want TO Continue ? Press Y For Exit Press Any Key");
@@ -53,8 +55,6 @@ namespace DEMO1
 
             } while (c == 'Y' || c == 'y');
 
-            cmd.CommandText = $"insert into Cars values('{RegisNo}', '{Name}', {Model}, '{color}', '{FuleType}', {Seatingcapacity})";
-            cmd.CommandType = CommandType.Text;
             int rows=cmd.ExecuteNonQuery();
             if(rows>0)
             {
